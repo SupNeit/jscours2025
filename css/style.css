@@ -33,3 +33,16 @@ ul li a {
 ul li a:hover {
     color: wheat;
 }
+
+button {
+    border: none;
+    background-color: royalblue;
+    color: wheat;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+button:hover {
+    background-color: rgba(116, 142, 228);
+}
