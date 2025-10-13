@@ -6,15 +6,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/base.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <title>Les bases du langage JavaScript</title>
 </head>
+
 <body>
     <main>
         <h1>Les bases du langage JavaScript</h1>
         <h2>Les variables</h2>
         <p>Une variable est un espace mémoire qui stocke une valeur (un nombre, du texte, etc...)</p>
-        <p>En JS on déclare une variable avec les mots clés <b>let, const</b> et anciennement <i>var</i> (dans les vieux codes)</p>
+        <p>En JS on déclare une variable avec les mots clés <b>let, const</b> et anciennement <i>var</i> (dans les vieux
+            codes)</p>
+
+        <h2>Les Boucles</h2>
+        <p>Une <b>boucle</b> est une structure qui per met de <b>répéter</b> un bloc de code tant qu'une condition est
+            vraie.</p>
+        <p>C'est une facon automatique de répéter des isntructions sans devoir les écrire plusieurs fois</p>
+
+        <h3>Les types de boucles</h3>
+        <ul>
+            <li>La boucle While</li>
+            <li>La boucle Do ...While</li>
+            <li>La boucle For</li>
+            <li>La boucle For... of</li>
+            <li>La boucle For... in</li>
+        </ul>
+
+        <h3>La boucle While</h3>
+        <p>On l'utilise quand on ne connait pas forcément à l'avance le nombre de tours</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                // Condition => Cette condition doit etre vrai pour pouvoir continuer la boucle (comme le if, cependant ne jamais mettre de ==)
+                while (condition) {
+                    // Code a exécuter
+                }
+            </code>
+        </pre>
+        <p><b>Exemple concret</b></p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                let n = 0;
+                while (n < 6) {
+                    console.log(n + " * 5 est égale à " + n * 5);
+                    n += 1
+                }
+            </code>
+        </pre>
+
+
+
+        <h3>La boucle Do... While</h3>
+        <p>Comme la boucle while, mais elle s'exécute au moins une fois avant de tester la condition</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                do {
+                    //
+                } while (condition);
+            </code>
+        </pre>
+        <p><b>Exemple concret</b></p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                let password;
+                do {
+                    password = prompt("Entrez le mot de passe");
+                } while (password != "abc123")
+                console.log("Tu as trouvé le mot de passe!");
+            </code>
+        </pre>
+
+
+        <h3>La boucle For </h3>
+        <p>La plus utilisé quand on connait a lavanace le nombre de répétitions</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                for (initialisation, condition; incrémentation) {
+                    // code à exécuter
+                }
+            </code>
+        </pre>
+        <p><b>Exemple concret</b></p>
+        <pre class="line-numbers">
+            <code class="language-javascript">   
+                for (let i = 0; i < 5; i++) {
+                    console.log("Compteur :" + i)
+                }
+            </code>
+        </pre>
+        <p>La boucle for permet de <b>traverser</b> un tableau à partir de ses index</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">   
+                let voitures = ["Dacia", "Lada", "Audi", "Daihatsu", "Toyota", "Chevrolet"]
+
+                for (let i = 0; i < voitures.length; i++){
+                    console.log(voitures[i])
+                }
+            </code> 
+        </pre>
+
+
+        <h3>La boucle For... OF </h3>
+        <div id="container"></div>
+
+
+
+
+
+
+
     </main>
-    
+
 </body>
+
 </html>

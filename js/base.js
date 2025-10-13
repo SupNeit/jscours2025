@@ -196,3 +196,143 @@ if (eleve.age >= 18) {
     // concaténation de littéral de gabarit
     console.log(`${eleve.name} n'est pas majeur`)
 }
+
+
+const recetteIngredients = ["patate", "tomate", "ail", "oignon", "huile d'olive"]
+
+const VitesseDeLaLumiere = 299_792_458;
+
+const table = [1, 2, 3]
+table.push(4)
+console.log(table)
+
+const ingredients = [];
+
+
+// On fabrique un blueprint qui permet de construire plus simplement des ingrédients, on appelle àa le prototypage
+class Ingredients {
+    constructor(nom, unite, quantite) {
+        this.nom = nom;
+        this.unite = unite;
+        this.quantite = quantite;
+    }
+}
+
+class Recette {
+    constructor(nom_recette, nbr_personnes, etapes, liste_ingredients) {
+        this.nom_recette = nom_recette;
+        this.nbr_personnes = nbr_personnes;
+        this.etapes = etapes;
+        this.liste_ingredients = liste_ingredients;
+    }
+}
+
+const sucreDeCanne = new Ingredients("Sucre de Canne", "g", 75)
+const lait = new Ingredients("Lait", "cl", 25)
+const oeuf = new Ingredients("Oeuf", "oeuf(s)", 3)
+const pain = new Ingredients("Pain", "tranche(s)", 75)
+console.log(sucreDeCanne)
+
+// On va mettre les ingrédients dans le tableau
+
+ingredients.push(sucreDeCanne, lait, oeuf, pain)
+
+console.log(ingredients)
+
+// On va faire la recette
+const etapes = ["Fouetter les oeufs avec le sucre et le lait.",
+    "Y tremper les tranches de pain.",
+    "Deux solutions pour la cuisson : les cuire à la poêle dans du beurre en les faisant dorer de chaque côté, ou, les cuire au four : beurrer légèrement un plat à gratin, y répartir les tranches, verser le reste du mélange (ajouter du sucre si envie), laisser cuire à 180°C (thermostat 6) jusqu\'à que les tranches soient dorées."
+]
+
+
+const painPerdu = new Recette("painPerdu", 4, etapes, ingredients)
+console.log(painPerdu)
+
+
+
+
+// Les boucles
+
+console.log("coucou")
+console.log("coucou")
+console.log("coucou")
+console.log("coucou")
+console.log("coucou")
+
+// Au lieu d'écrire ceci↑ 2 mille fois, on peut faire ceci↓
+
+// for (let i = 0; i <= 2000; i++) {
+//     console.log(i + " patate(s)");
+// }
+
+
+// Boucle While
+let n = 0;
+while (n < 6) {
+    console.log(n + " * 5 est égale à " + n * 5);
+    n++
+}
+
+let i = 0;
+while (i < 10) {
+    console.log(Math.floor(Math.random() * 100))
+    i += 1
+}
+
+
+
+// Boucle Do... While
+
+// let password;
+// do {
+//     password = prompt("Entrez le mot de passe");
+// } while (password != "abc123")
+// console.log("Tu as trouvé le mot de passe!");
+
+let des;
+do {
+    des = Math.floor((Math.random() * 6) + 1);
+    console.log(des)
+} while (des !== 6)
+console.log("Tu as trouvé le dé secret!");
+
+
+
+// Boucle For
+
+for (let i = 0; i < 5; i++) {
+    console.log("Compteur :" + i)
+}
+
+// Boucle for -> traverser les tableaux
+
+let voitures = ["Dacia", "Lada", "Audi", "Daihatsu", "Toyota", "Chevrolet"]
+
+for (let i = 0; i < voitures.length; i++) {
+    console.log(voitures[i])
+}
+
+// La boucle For... of
+
+let fruits = ["La Pomme", "La Banane", "Le Kiwi", "L'Avocat", "Le Durian"]
+for (let fruit of fruits) {
+    console.log('J\'aime ' + fruit)
+}
+
+
+
+const gafam = ["Google", "Amazon", "Facebook", "Apple", "Microsoft"]
+
+const container = document.getElementById("container");
+const ul = document.createElement("ul")
+container.appendChild(ul);
+
+for (let marque of gafam) {
+    const li = document.createElement("li");
+    li.textContent = marque;
+    ul.appendChild(li)
+}
+
+
+
