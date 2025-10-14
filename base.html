@@ -108,9 +108,165 @@
 
         <h3>La boucle For... OF </h3>
         <div id="container"></div>
+            const container = document.getElementById("container");
+            const ul = document.createElement("ul")
+            container.appendChild(ul);
+
+            for (let marque of gafam) {
+                const li = document.createElement("li");
+                li.textContent = marque;
+                ul.appendChild(li)
+            }
+
+
+        <h3>La boucle For... In </h3>
+        <p>Elle permet de parcourir les <b>propriétés d'un objet</b></p>
+        <div id="pen-container"></div>
+        <pre class="line-numbers">
+            <code class="language-javascript">   
+                const stylo = {
+                    taille: 15,
+                    marque: "bic",
+                    couleur: "#0000FF",
+                    aEncoreSonCapuchon: true
+                }
+
+                const penContainer = document.getElementById("pen-container");
+                const ulPen = document.createElement("ul");
+
+                penContainer.appendChild(ulPen);
+
+                // pour chaque cle dans stylo 
+                for (let cle in stylo) {
+                    // On récupère la valeur
+                    let value = stylo[cle];
+                    // On crée un li pour chaque valeur
+                    let li = document.createElement("li");
+                    // Exemple de littéral de gabarit qui facilite l'écriture des concaténations
+                    li.innerHTML = `<span class='cyan'>${cle}</span>: ${value}`
+                    // le li est ramené dans l'ul
+                    ulPen.appendChild(li);
+                    console.log(value)
+                }
+            </code> 
+        </pre>
 
 
 
+        <h2>Les mots clés BREAK et CONTINUE</h2>
+        <p>Le Break permet de sortir immédiatement d'une boucle</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                for (let i = 0; i < 10; i++){    
+                    if (i === 5) {
+                        break;
+                    }
+                    console.log(i)
+                }            
+            </code> 
+        </pre>
+            
+        <p>Le Continue permet de sauter une intéraction sans arreter la boucle</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                for (let i = 0; i < 10; i++){
+                    if (i % 2 === 0){
+                        continue;
+                    }
+                }
+            </code> 
+        </pre>
+        <br>
+        <br>
+
+
+
+        <h2>LES TABLEAUX</h2>
+        <p>Un tableau en JavaScript est un objet spécial qui peut contenir plusieurs valurs dans une seule variante</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                const fruits = ["pomme", "banane", "orange"]
+            </code> 
+        </pre>
+
+        <p>Comment accéder aux élements</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                const fruits = ["pomme", "banane", "orange"]
+
+                console.log(fruits[0]); // "pomme"
+                console.log(fruits[1]); // "banane"
+                console.log(fruits[2]); // "orange"
+            </code> 
+        </pre>
+
+        <p>Modifier un element du tableau</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                const fruits = ["pomme", "banane", "orange"]
+
+                fruits[1] = "kiwi";
+            </code> 
+        </pre>
+
+        <p>Ajouter et supprimer des élements</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                const fruits2 = ["pomme", "banane", "orange"]
+
+                // ajouter un élement à la fin
+                fruits2.push("fraise");
+                // ajouter un élément au début
+                fruits2.unshift("melon");
+                // supprimer le dernier element
+                fruits2.pop;
+                //supprimer le premier element
+                fruits2.shift;
+            </code> 
+        </pre>
+
+        <p>Autres fonctions utiles</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                const fruits3 = ["framboise", "tomates", "coing", "poire"];
+
+                // trouver l'index d'un élément
+                let posFruit = fruits3.indexOf("tomates")
+                console.log(posFruit)
+                // vérifier si un élément est présent
+                console.log(fruits3.includes('orange'))
+                // Convertir un tableau en chaine de caracteres
+                let saladeDeFruit = fruits3.join(", ")
+                console.log(saladeDeFruit)
+            </code> 
+        </pre>
+
+
+        <h2>LES CHAINES DE CARACTERE</h2>
+        <p>Une chaine de caractere ou string est une suite de caractères(lettre, chiffres, symbole...) entre guillement</p>
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                let txt = "Bonjour le monde"
+
+                let nom = "Alice"
+                let message = 'Salut !'
+                let phrase = `${message} ${nom}`    // Salut! Alice
+            </code> 
+        </pre>
+
+
+        <pre class="line-numbers">
+            <code class="language-javascript"> 
+                // Connaitre la taille d'une string
+                let mot = "Jean-Michel"
+                console.log(mot.length);
+                // length ??
+                console.log(mot[3]);
+                // Depuis le début, les strings sont en fait des tableaux
+                // Pour ajouter une majuscule au premier élément
+                mot.charAt(0).toUpperCase();
+            </code> 
+        </pre>
 
 
 

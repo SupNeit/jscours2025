@@ -260,7 +260,7 @@ console.log("coucou")
 console.log("coucou")
 console.log("coucou")
 
-// Au lieu d'écrire ceci↑ 2 mille fois, on peut faire ceci↓
+// Au lieu d'écrire ceci↑ 2000 fois, on peut faire ceci↓
 
 // for (let i = 0; i <= 2000; i++) {
 //     console.log(i + " patate(s)");
@@ -299,6 +299,7 @@ console.log("Tu as trouvé le dé secret!");
 
 
 
+
 // Boucle For
 
 for (let i = 0; i < 5; i++) {
@@ -320,8 +321,6 @@ for (let fruit of fruits) {
     console.log('J\'aime ' + fruit)
 }
 
-
-
 const gafam = ["Google", "Amazon", "Facebook", "Apple", "Microsoft"]
 
 const container = document.getElementById("container");
@@ -336,3 +335,189 @@ for (let marque of gafam) {
 
 
 
+// La boucle For... In
+
+const stylo = {
+    taille: 15,
+    marque: "bic",
+    couleur: "#0000FF",
+    aEncoreSonCapuchon: true
+}
+
+const penContainer = document.getElementById("pen-container");
+const ulPen = document.createElement("ul");
+penContainer.appendChild(ulPen);
+
+// pour chaque cle dans stylo 
+for (let cle in stylo) {
+    // On récupère la valeur
+    let value = stylo[cle];
+    // On crée un li pour chaque valeur
+    let li = document.createElement("li");
+    // Exemple de littéral de gabarit qui facilite l'écriture des concaténations
+    li.innerHTML = `<span class='cyan'>${cle}</span>: ${value}`
+    // le li est ramené dans l'ul
+    ulPen.appendChild(li);
+    console.log(value)
+}
+
+
+
+
+// BREAK
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i)
+}
+
+console.log("---Séparation---")
+
+// CONTINUE
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+
+
+//// Exercices 
+
+const utilisateurs = [
+    { nom: "Alice", actif: true },
+    { nom: "Bob", actif: false },
+    { nom: "Charlie", actif: true },
+    { nom: "David", actif: false }
+]
+
+for (let cle of utilisateurs) {
+    if (!cle.actif) {
+        continue;
+    }
+    console.log("Utilisateur actif :", cle.nom);
+}
+
+//// Autre exo 
+const panier = [
+    { nom: "Clavier", stock: 5 },
+    { nom: "Souris", stock: 0 },
+    { nom: "Ecran", stock: 3 },
+    { nom: "Casque", stock: 0 },
+    { nom: "Webcam", stock: 2 }
+]
+
+// Afficher uniquement les produits qui ne sont pas en rupture de stock
+for (let cle of panier) {
+    if (cle.stock === 0) {
+        continue;
+    }
+    console.log(cle.stock, cle.nom, "disponible(s)");
+}
+
+console.log("---Séparation---")
+// Arreter la recherche dès qu'un produit est en stock
+for (let cle of panier) {
+    if (cle.stock !== 0) {
+        console.log(cle.stock, cle.nom, "disponible(s)");
+        break;
+    }
+    console.log(cle.stock, cle.nom, "disponible(s)");
+}
+
+
+
+//// Autre exo
+// Chercher le 1er multiple de 7 dans le tableau, puis la boucle s'arrete
+const nbrs = [2, 1, 9, 13, 14, 8, 74]
+let nn = 0;
+
+while (nbrs[nn] % 7 !== 0) {
+    nn++
+    if (nn % 7 === 0) {
+        break;
+    }
+}
+console.log("Premier multiple de 7 :", nbrs[nn]);
+
+
+
+//// Autre exo
+// Ecrire un programme qui parcourt un tableau avec une boucle for qui va chercher le 1er nombre pair après un nombre impair, puis arrete la boucle
+const nbrs2 = [2, 18, 46, 19, 25, 14, 9978]
+
+
+for (let i = 0; i < nbrs2.length; i++) {
+    if (i + 1 !== nbrs2.length) {
+        if (nbrs2[i] % 2 === 1) {
+            if (nbrs2[i + 1] % 2 === 0) {
+                console.log("Premier chiffre impair suivi d'un pair :", nbrs2[i])
+                console.log("Premier chiffre pair apres un impair:", nbrs2[i + 1])
+                break;
+            }
+        }
+    } else {
+        break;
+    }
+}
+
+console.log("---Séparation---")
+
+const nombres = [3, 4, 17, 9, 25, 4];
+let trouve = false;
+
+for (let i = 0; i < nombres.length; i++) {
+    if (nombres[i] % 9 === 0) {
+        console.log("Trouvé :", nombres[i]);
+        trouve = true;
+        break;
+    }
+}
+
+if (trouve === false) {
+    console.log("Aucun multiple de 9 trouvé");
+}
+
+
+
+
+// LES TABLEAUX
+
+const fruits2 = ["pomme", "banane", "orange"];
+
+// ajouter un élement à la fin
+fruits2.push("fraise");
+// ajouter un élément au début
+fruits2.unshift("melon");
+// supprimer le dernier element
+fruits2.pop;
+//supprimer le premier element
+fruits2.shift;
+
+
+
+// Autres fonctions utiles
+
+const fruits3 = ["framboise", "tomates", "coing", "poire"];
+// trouver l'index d'un élément
+let posFruit = fruits3.indexOf("tomates")
+console.log(posFruit)
+// vérifier si un élément est présent
+console.log(fruits3.includes('orange'))
+// Convertir un tableau en chaine de caracteres
+let saladeDeFruit = fruits3.join(", ")
+console.log(saladeDeFruit)
+
+
+// STRING
+
+// Connaitre la taille d'une string
+let mot = "Jean-Michel"
+console.log(mot.length);
+// length ??
+console.log(mot[3]);
+// Depuis le début, les strings sont en fait des tableaux
+// Pour ajouter une majuscule au premier élément
+let mot2 = mot.charAt(0).toUpperCase() + mot.slice(1);
+console.log(mot2)
