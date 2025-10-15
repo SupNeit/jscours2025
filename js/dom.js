@@ -85,3 +85,25 @@ mom.appendChild(img)
 
 
 
+
+// Récupérer les classes
+// Méthode déconseillée
+// const pokemons = document.getElementByClassName(".pokemons");
+
+// Méthode conseillée
+const pokemons = document.querySelectorAll('.pokemons');
+console.log(pokemons)
+// Si on sait qu'il y a qu'un element d'une classe on peut utiliser
+const listPokemons = document.querySelector('.list-pokemons');
+console.log(listPokemons)
+
+const colorPokemon = ["#ebae34", "#f5b0d7", "#f5bf82", "#d2faac", "#d7c5d9"]
+for (let i = 0; i < colorPokemon.length; i++) {
+    pokemons[i].style.color = colorPokemon[i];
+}
+// Ajouter une classe
+// element.classList.add(nom de l'élément)
+// Enlever une classe
+// element.classList.remove(nom de la classe)
+// Basculer de classe
+// element.classList.toggle(nom de la classe)

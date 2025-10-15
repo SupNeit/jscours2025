@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/fonction.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <title>Les Fonctions</title>
+</head>
+
+<body>
+    <main>
+        <h1>Les Fonctions</h1>
+        <p>Une fonction est un bloc de code réutilisable qui effectue une <b>tache précise</b></p>
+        <p>Elle permet d'organiser ton code et d'éviter les répétitions et rends ton code plus lisisble</p>
+
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                function nomDeLaFonction() {
+                    // Instructions à exécuter
+                }
+            </code> 
+        </pre>
+
+        <h3>Comment les range-t-on dans le code ?</h3>
+        <p>Les principales sont rangés plus vers le haut, que les fonctions "utilitaires".</p>
+
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                const panier = [
+                    { name: "Pomme", price: 2, quantity: 5},
+                    { name: "Kiwi", price: 1, quantity: 50},
+                    { name: "Mangue", price: 9, quantity: 25}
+                ]
+
+                // Fonction qui additionne deux nombres 
+                // C'est un fonction utilitaire
+                function add(nbrA, nbrB) {
+                    return nbrA + nbrB
+                }
+
+                // Autre fonction utilitaire
+                function multiply(nbrA, nbrB) {
+                    return nbrA * nbrB
+                }
+
+                function calculatePriceCart(cart) {
+                    // Avant de calculer, on va initialiser le total.
+                    let total = 0;
+                    for (let i = 0; i < cart.length; i++) {
+                        // Pour faciliter la lecture, on renomme l'élément actuel de la boucle par un variable plus simple a écrire
+                        const item = cart[i];
+                        // Le return de la fonction multiply injecte son resultat dans itemPriceTotal
+                        const itemPriceTotal = multiply(item.price, item.quantity);
+                        total = add(total, itemPriceTotal)
+                    }
+                    return total
+                }
+                console.log(calculatePriceCart(panier));
+            </code> 
+        </pre>
+
+        
+        <h3>Les Arguments</h3>
+        <p>Un argument est une valeur qu'on donne à une fonction quand on l'appelle, pour qu'elle travaille avec cette valeur</p>
+        <ul>
+            <li>Quand on déclare la focntion, on parle de paramètres.</li>
+            <li>Quand on appelle la fonction, on parle d'arguments</li>
+        </ul>
+
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                function bonjour(prenom) {
+                    console.log ("Bonjour" + prenom);
+                }
+
+                bonjour("Jean-Michel")
+            </code> 
+        </pre>
+
+        <h2>Plusieurs Arguments</h2>
+        <p>Une fonction peut avoir autant d'argument que l'on veut, et on doit passer le meme nombre d'arguments quand on l'appelle</p>
+        <p>Si le nombre d'arguments est en trop ou qu'il en manque, la fonction retourne undefined</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                function add(nbrA, nbrB) {
+                    return nbrA + nbrB
+                }
+                console.log(add(7, 19));   // 26
+            </code> 
+        </pre>
+
+        <h3>Valeurs par défaut</h3>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                function bonjour(prenom = Sebastien) {
+                    console.log ("Bonjour" + prenom);
+                }
+
+                bonjour();        // Bonjour Sebastien
+            </code> 
+        </pre>
+
+        <p>ATTENTION !</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                function Abc(a, b = 45, c) { // erreur, les parametres optionnels doivent etre écrits en dernier
+                    // Code de la fonction
+                }
+
+                // VERSION CORRIGEE
+                function Abc(a, c, b = 45) {
+                    // Code de la fonction
+                }
+            </code> 
+        </pre>
+
+
+
+
+
+
+
+
+        <!-- Exercice -->
+        <input type="text" name="Texte" id="input">
+        <button id="btn">Ajoutez votre texte dans la liste ci-dessous.</button>
+        <ul id="ul">
+
+        </ul>
+
+
+
+
+
+
+
+    </main>
+</body>
+</html>
