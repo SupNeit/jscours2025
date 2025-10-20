@@ -11,7 +11,7 @@
     <title>Le DOM</title>
 </head>
 
-<body>
+<body style ="height: 2000vh">
     <main>
         <h1>Le DOM ou Document Object Model</h1>
         <h2 id="title" aria-label="titre secondaire">C'est quoi le <b>DOM</b></h2>
@@ -76,11 +76,79 @@
         </pre>
 
 
+        <h2>SetTimeout() et SetInterval()</h2>
+
+        <h3>SetTimeout()</h3>
+        <p>Exécute une focntion une seule fois après un certain temps</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                // SetTimeout
+
+                setTimeout(function(){
+                    console.log("3 secondes se sont écoulées !")
+                }, 3000)
+            </code> 
+        </pre>
+
+        <h3>SetInterval()</h3>
+        <p>Exécute une focntion en boucle après un certain temps</p>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                // SetInterval
+
+                setInterval(function(){
+                    console.log("1 seconde vient de passer !")
+                }, 1000)
+            </code> 
+        </pre>
+
+        <h3>clearTimeout() et clearInterval()</h3>
+        <p>Pour pouvoir supprimer vos timers, il faudra les mettre dans une variable</p>
+
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                // clearTimeout
+
+                const timer = setTimeout(function(){
+                    console.log("3 secondes se sont écoulées !")
+                }, 3000)
+                clearTimeout(timer)
+
+                const interval = setInterval(function(){
+                    console.log("1 secondes viennent de passer !")
+                }, 1000)
+                clearInterval(interval)
+            </code> 
+        </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </main>
-
-
 
 </body>
 
