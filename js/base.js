@@ -521,3 +521,78 @@ console.log(mot[3]);
 // Pour ajouter une majuscule au premier élément
 let mot2 = mot.charAt(0).toUpperCase() + mot.slice(1);
 console.log(mot2)
+
+
+// Méthodes itératrices
+
+const videoGames = ['Mario', 'Pandemonium', 'Gran Turismo', 'Metal Gear', 'Zelda', 'Hollow Knight', 'Rocket League']
+const nbrIte = [5, 10, Math.PI, 19, 478, 255, 6472, 2.5, 47.899]; 
+
+// Ecriture standard
+// videoGames.forEach(videoGame => {
+//     console.log(videoGame)
+// });
+
+videoGames.forEach((videoGame, index) => {
+    console.log(`index ${index} : ${videoGame}`)
+});
+
+
+// .map
+// Retourne un tableau après transformation de chaque élément
+const upper = videoGames.map( videoGames => videoGames.toUpperCase())
+console.log(upper);
+
+// Retourne un tableau avec les valeurs a la puissance de 2
+const pow2 = nbrIte.map( n => n ** 2)
+console.log(pow2)
+
+
+// .filter
+// Retourne un tableay avec uniquement les éléments qui ont passé un test.
+const even = nbrIte.filter(n => n % 2 === 0)
+console.log(even);
+
+// On récupère dans le tableau le nom des jeu qui commence par un m
+const mGames = videoGames.filter( vg => vg.charAt(0).toLowerCase() === "m")
+console.log(mGames)
+
+
+// .reduce 
+// Il accumule une valeur à partir des éléments du tableau
+const prices = [10, 15.75, 78, 12]
+const totalPrice = prices.reduce((acc, val) => acc + val, 0);
+console.log(totalPrice);
+
+// Au départ acc = 0
+// acc + val = 10
+// 10 + 15.75
+// 25.75 + 78
+// 103.75 + 12
+// 115.75
+
+
+// .find()
+// Retourne le PREMIER elment qui passe un test
+const users = [
+    {id: 1, nom:"Jean-Michel"}, 
+    {id: 2, nom:"Jean-Marcel"}, 
+    {id: 3, nom:"Jean-Marc"}, 
+    {id: 4, nom:"Jean-Eude"}, 
+    {id: 5, nom:"Jean-Kévin"}, 
+]
+
+const user = users.find( u => u.id === 4)
+console.log(user)
+
+// some() et every()
+
+// .some vérifie qu'un moins un élément du tableau satisfait la condition
+// .every vérifie que tous les éléments du tableau satisfait la condition
+
+const nbrSome = [1, 5, 4, 74, 52356]
+const strEvery = ['Autruche', 'Ane', 'Anguille', 'Alligator']
+
+console.log(nbrSome.some(n => n % 2 === 0))
+console.log(nbrSome.every(n => n % 2 === 0))
+console.log(strEvery.every(s => s.charAt(0).toLowerCase() === "a"))

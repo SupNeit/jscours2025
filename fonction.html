@@ -63,9 +63,10 @@
             </code> 
         </pre>
 
-        
+
         <h3>Les Arguments</h3>
-        <p>Un argument est une valeur qu'on donne à une fonction quand on l'appelle, pour qu'elle travaille avec cette valeur</p>
+        <p>Un argument est une valeur qu'on donne à une fonction quand on l'appelle, pour qu'elle travaille avec cette
+            valeur</p>
         <ul>
             <li>Quand on déclare la focntion, on parle de paramètres.</li>
             <li>Quand on appelle la fonction, on parle d'arguments</li>
@@ -82,7 +83,8 @@
         </pre>
 
         <h2>Plusieurs Arguments</h2>
-        <p>Une fonction peut avoir autant d'argument que l'on veut, et on doit passer le meme nombre d'arguments quand on l'appelle</p>
+        <p>Une fonction peut avoir autant d'argument que l'on veut, et on doit passer le meme nombre d'arguments quand
+            on l'appelle</p>
         <p>Si le nombre d'arguments est en trop ou qu'il en manque, la fonction retourne undefined</p>
         <pre class="line-numbers">
             <code class="language-javascript">
@@ -119,12 +121,6 @@
         </pre>
 
 
-
-
-
-
-
-
         <!-- Exercice -->
         <input type="text" name="Texte" id="input">
         <button id="btn">Ajoutez votre texte dans la liste ci-dessous.</button>
@@ -133,11 +129,64 @@
         </ul>
 
 
+        <h2>LES FONCTIONS FLECHEES</h2>
+        <p>Il existe une syntaxe plus simple et concise pour créer des focntions, elles sont appelées, fonctions
+            fléchées</p>
+        <div id="wrapper">
+            <button id="btn-arrow">Test fonction fléchées</button>
+        </div>
+        <pre class="line-numbers">
+            <code class="language-javascript">
+                // FONCTIONS FLECHEES
+
+                // function add(nbrA, nbrB) {
+                //     return nbrA + nbrB
+                // }
+
+                let sum = (a, b) => a + b;
+                console.log(sum(12, 15)) // 27
+
+                // Quand il n'y a qu'un paramètre, les paranthèses sont facultatives
+                let double = a => a * 2;
+                console.log(double(140)) // 280
+
+                // Fonction fléchées en plusieures lignes
+                let calc = (a, b, c) => {
+                    let d = a * b;
+                    return d - c
+                }
+                console.log(calc(14, 2, 12)) // 16
+
+                let maj = str => str.toUpperCase()
+                console.log(maj("coucou")) // COUCOU
+
+                // Problème avec this
+                // Exemple normal
+
+                let arrow = () => {
+                    document.addEventListener('click', () => {
+                        console.log(this)
+                    })
+                }
+                arrow();
 
 
+                const btnArrow = document.getElementById("btn-arrow")
+
+                btnArrow.addEventListener("click", () => {
+                    console.log(this)
+                })
+            </code> 
+        </pre>
+        <h3>Conclusion sur les fonctions fléchées</h3>
+        <ul>
+            <li>POUR : Utiliser les fonctions fléchées pour les callback, les fonctions simple et les fonctions anonymes</li>
+            <li>CONTRE : Ne pas les utiliser quand on a besoin du mot clé "this" et "constructor"</li>
+        </ul>
 
 
 
     </main>
 </body>
+
 </html>

@@ -27,8 +27,14 @@ btn.addEventListener('click', () => {
 
     for (let n = 0; n < nombre; n++) {
 
-        let motifLength = Math.random() < 0.5 ? 5 : 6;
-        console.log(motifLength)
+        let motifLength;
+        if (Math.random() < 0.5) {
+            motifLength = 5;
+        } else {
+            motifLength = 6;
+        }
+        
+        console.log(motifLength);
         let motif = "";
 
 

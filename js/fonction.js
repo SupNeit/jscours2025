@@ -124,4 +124,55 @@ AjouterTexte()
 
 
 
+// FONCTIONS FLECHEES
+
+// function add(nbrA, nbrB) {
+//     return nbrA + nbrB
+// }
+
+let sum = (a, b) => a + b;
+console.log(sum(12, 15)) // 27
+
+// Quand il n'y a qu'un paramètre, les paranthèses sont facultatives
+let double = a => a * 2;
+console.log(double(140)) // 280
+
+// Fonction fléchées en plusieures lignes
+let calc = (a, b, c) => {
+    let d = a * b;
+    return d - c
+}
+console.log(calc(14, 2, 12)) // 16
+
+let maj = str => str.toUpperCase()
+console.log(maj("coucou")) // COUCOU
+
+// Problème avec this
+// Exemple normal
+
+let arrow = () => {
+    document.addEventListener('click', () => {
+        console.log(this)
+    })
+}
+arrow();
+
+
+const btnArrow = document.getElementById("btn-arrow")
+
+btnArrow.addEventListener("click", () => {
+    console.log(this)
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
