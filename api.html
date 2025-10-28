@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- PrismJS CSS (thème) -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+
+    <!-- PrismJS Core + langage JSON -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+
+    <script defer src="js/api.js"></script>
+    <title>Les API, les promises, les AJAX</title>
+</head>
+
+<body>
+    <main>
+        <h1>API, JSON, PROMISE, AJAX</h1>
+        <h2>LES API</h2>
+        <p>API : Application Programming Interface</p>
+        <p>C'est une Interface qui permet au moins à deux programmes ou services de communiquer entre eux</p>
+        <p>Exemple Méthaphorique</p>
+        <ul>
+            <li>Tu es le <b>client</b> (le front-end).</li>
+            <li>Tu commande un plat.</li>
+            <li>Le <b>cuisinier (le serveur du back-end)</b> le prépare.</li>
+            <li>Le cuisinier prépare le plat à partir du garde manger (la base de données) dans la cuisine (serveur
+                API).</li>
+            <li>L' <b>AJAX</b> joue le role de garçon de restaureant, il prend ta commande, la transmet à la cuisine
+                puis d'apporte le plat</li>
+        </ul>
+        <img src="img/how-a-web-api-works.png" alt="schema API">
+
+        <h2>Le JSON</h2>
+        <p>Le JSON = JavaScript Object Notation</p>
+        <p>C'est un <b>format de données</b> léger, lisible, utilisé pour <b>échnager des données</b> entre un serveur
+            et une application web, ou entre deux applications n'utilisant pas le même langage</p>
+
+        <p>A quoi ça sert</p>
+        <ul>
+            <li>Envoyer ou recevoir des données via une API</li>
+            <li>Stocker des données dans un fichier</li>
+            <li>Communiquer entre différentes technologie (Java, PHP, Python, Ruby, etc...)</li>
+        </ul>
+
+        <pre class="line-numbers">
+            <code class="language-json">
+                {
+                    "nom": "Jean-Michel",
+                    "age": 30,
+                    "email": "jean@exemple.com",
+                    "estActif": true,
+                    "competences": ["HTML", "CSS", "JavaScript"]
+                }
+                
+            </code>
+        </pre>
+
+        <h3>Structure</h3>
+        <ul>
+            <li>{} : un objet</li>
+            <li>Un système comme les objets de clé : valeur</li>
+            <li>Les clés sont toujours entre guillemets</li>
+            <li>Les valeurs autorisées sont : <ul>
+                    <li>String : "Jean-Michel"</li>
+                    <li>Nombre : 30</li>
+                    <li>booléen true/false</li>
+                    <li>tableau : []</li>
+                    <li>objets : {}</li>
+                    <li>null</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>JSON vs ObjetJavaScript</h3>
+        <p>Attention, ne pas conforndte l"écriture du'un JSON avec un objet JS</p>
+        <pre class="line-numbers">
+            <code class="language-json">
+                {
+                    "data": [0, 2, 456],
+                    "owner": "Hypolite",
+                    "admin": false,
+                    "employes" : null
+                }
+                
+            </code>
+        </pre>
+
+        <p>Conversions JSON - Objet js</p>
+        <pre class="line-numbers">
+            <code class="language-json">
+                const user = {
+                    data : [0, 2, 456],
+                    owner : "Hypolite",
+                    admin : false,
+                    employes : null
+                }
+                
+            </code>
+        </pre>
+
+
+        <p>Conversions JSON - Objet js</p>
+        <pre class="line-numbers">
+            <code class="language-json">
+                // Convertir un JSON en objet JavaScript
+                // on va simuler un fichier JSON
+
+                const JSON = '{"nom": "Jean-Michel", "age": 30,}'
+                // On convertis la string en JSON en objet JavaScript
+                const obj = JSON.parse(json)
+                console.log(obj.nom)
+
+                // Convertir un objet JavaScript en JSON
+
+
+                const user = {
+                    nom: "Jean-Bon", 
+                    age: 12,
+                }
+                const jsonObj = JSON.stringify(user)
+                console.log(jsonObj)
+                
+            </code>
+        </pre>
+
+        <h2>Les Promises</h2>
+        <p>Une Promise (une promesse) est un objet JS qui représente <b>une opération asychrone</b> (c'est à dire qui ne
+            se fait pas tout de suite)</p>
+
+        <p>Elles servent a éviter les "call-back hell" (des fonctions d'appel imbriquées entre elles de façon excessive)
+        </p>
+        <p>L'enfer des rappels, ausssi appelé "Pyramide de la mort", est une situation ou plusieurs rappels imbriqués
+            sont utilisés pour gérer des opérations asynchrones en js. Cela se produit généralement lorsque plusieurs
+            taches asychrones dépendent des résultats des autres</p>
+        <p>Donc nous avons besoin des promesses pour améliorer la lisibilité des opérations asynchrones</p>
+        <p>Les promesses en 3 étapes</p>
+        <ul>
+            <li>Resolve (réussite)</li>
+            <li>Rejected (refusé)</li>
+            <li>Pending (état d'attente)</li>
+        </ul>
+
+
+
+        <h2>Les AJAX</h2>
+        <p>AJAX = Asynchronous JavaScript and XML</p>
+        <p>A quoi ça sert ?</p>
+        <ul>
+            <li>A faire une requête HTML sans recharger la page</li>
+            <li>Envoyer ou recevoir des données depuis un serveur API</li>
+            <li>Créer des applications web dynamique (exemple : liste articles, formulaire...)</li>
+        </ul>
+        <p>Requete HTTP -> HyperText Transfer Protocol</p>
+        <p>C'est un protocole qui permet à un client, <b>votre navigateur</b>, ou une application de bureau, de communiquer avec un serveur web pour échanger des données (HTML, JSON, ou des images, etc...)</p>
+        <img src="img/csm_diagram-of-http-communication-process-fr_bb0006610b.webp" alt="schema du protocole HTTP">
+
+        <ul id="huge-list">
+
+        </ul>
+
+        <div id="aled">
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>

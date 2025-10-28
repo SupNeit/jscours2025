@@ -523,6 +523,9 @@ let mot2 = mot.charAt(0).toUpperCase() + mot.slice(1);
 console.log(mot2)
 
 
+
+
+
 // Méthodes itératrices
 
 const videoGames = ['Mario', 'Pandemonium', 'Gran Turismo', 'Metal Gear', 'Zelda', 'Hollow Knight', 'Rocket League']
