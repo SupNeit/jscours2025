@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/sv443-joke-api@0.0.8/web/index.js"></script>
+    <title>Blagues multilingues</title>
+</head>
+
+<body>
+    <main>
+
+        <h1>😂 Blagues multilingues</h1>
+        <div class="selector">
+            <div>
+                <p>Langue :
+                    <select id="languages" name="languages">
+                        <option value="en">Anglais</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Allemand</option>
+                        <option value="es">Espagnol</option>
+                        <option value="cs">Tchèque</option>
+                    </select>
+                </p>
+
+            </div>
+
+            <div>
+                <p>Type de blague :
+                    <select id="type" name="type">
+                        <option value="all">Toutes</option>
+                        <option value="line">Une ligne</option>
+                        <option value="qr">Question / Réponse</option>
+                    </select>
+                </p>
+
+            </div>
+
+            <div>
+                <p>Exclure : </p>
+                <div id="checkboxes">
+                    <input type="checkbox" value="nsfw"> NSFW
+                    <input type="checkbox" value="religious"> Religion
+                    <input type="checkbox" value="racist"> Racisme
+                    <input type="checkbox" value="sexist"> Sexisme
+                    <input type="checkbox" value="explicit"> Vulgaire
+                </div>
+            </div>
+
+            <div>
+                <p>Nombre :
+                    <select id="nombre" name="nombre">
+                        <option value="1">1 blague</option>
+                        <option value="2">2 blagues</option>
+                        <option value="3">3 blagues</option>
+                    </select>
+                    <button class="btn" id="btn">Obtenir des blagues</button>
+                </p>
+
+            </div>
+        </div>
+
+        <div id="container-blagues">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>
